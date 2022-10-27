@@ -6,10 +6,10 @@ const string kKeyWordName[32]={"auto","break","case","char","const","continue","
 	"volatile","while"};
 
 
-class CodeTest
+class Code_test
 {
     public:
-        CodeTest(){}
+        Code_test(){}
         bool Divide(int &index);
         void T1(string divided_unit);
         void T2(int &index);
@@ -29,7 +29,7 @@ class CodeTest
         int Switch_Count;
 }; 
 
-bool CodeTest::Divide(int &index)
+bool Code_test::Divide(int &index)
 {
     if(str_line[index] == '"')
 	{
@@ -70,7 +70,7 @@ bool CodeTest::Divide(int &index)
 
 
 
-void CodeTest::T2(int &index)
+void Code_test::T2(int &index)
 {
 	for(index; index < str_line.size(); index++) if (!(str_line[index] == ' ' || str_line[index] == '\t')) break;
 	if(index == str_line.size())
@@ -108,7 +108,7 @@ void CodeTest::T2(int &index)
 	}				
 }
 
-void CodeTest::T1(string divided_unit)
+void Code_test::T1(string divided_unit)
 {
 	for(int i = 0; i < 32; i++) if(divided_unit == kKeyWordName[i]) Keyword_Count++;
 	if(divided_unit == "switch" && Switch_Count)  
@@ -125,7 +125,7 @@ void CodeTest::T1(string divided_unit)
 	if(divided_unit == "else") Is_Previous_Else = true;
 }
 
-void CodeTest::T_File(string filename)
+void Code_test::T_File(string filename)
 {
     Is_Previous_Else = false;
     Keyword_Count = 0;
@@ -177,7 +177,7 @@ void CodeTest::T_File(string filename)
 }
 
 
-void CodeTest::Display(int level)
+void Code_test::Display(int level)
 {
     if(level >= 1) cout<<"total num: "<<Keyword_Count<<endl;
     if(level >= 2)
@@ -199,7 +199,7 @@ void CodeTest::Display(int level)
 
 int main()
 {
-    CodeTest *to_text = new CodeTest();  
+    Code_test *to_text = new Code_test();  
     string infilename;  
     int level;
 	cin>>infilename>>level;
